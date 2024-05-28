@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trivia_games",
+  "info": {
+    "singularName": "trivia-game",
+    "pluralName": "trivia-games",
+    "displayName": "Trivia Game",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "enumeration",
+      "enum": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ]
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question.question",
+      "mappedBy": "triviaGame"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "triviaGames"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Question",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "options": {
+      "type": "json"
+    },
+    "answer": {
+      "type": "string"
+    },
+    "triviaGame": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trivia-game.trivia-game",
+      "inversedBy": "questions"
+    }
+  }
+}

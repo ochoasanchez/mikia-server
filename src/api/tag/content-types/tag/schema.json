@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "singularName": "tag",
+    "pluralName": "tags",
+    "displayName": "Tag",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "memoryGames": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::memory-game.memory-game",
+      "inversedBy": "tags"
+    },
+    "triviaGames": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::trivia-game.trivia-game",
+      "inversedBy": "tags"
+    }
+  }
+}
