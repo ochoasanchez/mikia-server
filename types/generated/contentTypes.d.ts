@@ -830,9 +830,9 @@ export interface ApiClientClient extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    email: Attribute.Email;
     phone: Attribute.String;
     company: Attribute.String;
+    position: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -925,6 +925,41 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::question.question',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiScoreScore extends Schema.CollectionType {
+  collectionName: 'scores';
+  info: {
+    singularName: 'score';
+    pluralName: 'scores';
+    displayName: 'Score';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    playerId: Attribute.Integer;
+    playerName: Attribute.String;
+    playerCompany: Attribute.String;
+    scoreValue: Attribute.Float;
+    scoreType: Attribute.Enumeration<['time', 'points']>;
+    game: Attribute.Enumeration<['trivia', 'memory']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::score.score',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::score.score',
       'oneToOne',
       'admin::user'
     > &
@@ -1029,6 +1064,7 @@ declare module '@strapi/types' {
       'api::client.client': ApiClientClient;
       'api::memory-game.memory-game': ApiMemoryGameMemoryGame;
       'api::question.question': ApiQuestionQuestion;
+      'api::score.score': ApiScoreScore;
       'api::tag.tag': ApiTagTag;
       'api::trivia-game.trivia-game': ApiTriviaGameTriviaGame;
     }

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scores",
+  "info": {
+    "singularName": "score",
+    "pluralName": "scores",
+    "displayName": "Score"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "playerId": {
+      "type": "integer"
+    },
+    "playerName": {
+      "type": "string"
+    },
+    "playerCompany": {
+      "type": "string"
+    },
+    "scoreValue": {
+      "type": "float"
+    },
+    "scoreType": {
+      "type": "enumeration",
+      "enum": [
+        "time",
+        "points"
+      ]
+    },
+    "game": {
+      "type": "enumeration",
+      "enum": [
+        "trivia",
+        "memory"
+      ]
+    }
+  }
+}
