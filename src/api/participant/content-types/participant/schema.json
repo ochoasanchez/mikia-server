@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "participants",
+  "info": {
+    "singularName": "participant",
+    "pluralName": "participants",
+    "displayName": "Participant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "userId": {
+      "type": "integer"
+    },
+    "userName": {
+      "type": "string"
+    },
+    "userCompany": {
+      "type": "string"
+    },
+    "userPhone": {
+      "type": "string"
+    },
+    "hasPlayed": {
+      "type": "boolean"
+    },
+    "level": {
+      "type": "integer"
+    }
+  }
+}

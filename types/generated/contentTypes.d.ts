@@ -894,6 +894,41 @@ export interface ApiMemoryGameMemoryGame extends Schema.CollectionType {
   };
 }
 
+export interface ApiParticipantParticipant extends Schema.CollectionType {
+  collectionName: 'participants';
+  info: {
+    singularName: 'participant';
+    pluralName: 'participants';
+    displayName: 'Participant';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    userId: Attribute.Integer;
+    userName: Attribute.String;
+    userCompany: Attribute.String;
+    userPhone: Attribute.String;
+    hasPlayed: Attribute.Boolean;
+    level: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::participant.participant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::participant.participant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiQuestionQuestion extends Schema.CollectionType {
   collectionName: 'questions';
   info: {
@@ -1063,6 +1098,7 @@ declare module '@strapi/types' {
       'api::card.card': ApiCardCard;
       'api::client.client': ApiClientClient;
       'api::memory-game.memory-game': ApiMemoryGameMemoryGame;
+      'api::participant.participant': ApiParticipantParticipant;
       'api::question.question': ApiQuestionQuestion;
       'api::score.score': ApiScoreScore;
       'api::tag.tag': ApiTagTag;
