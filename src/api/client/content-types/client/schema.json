@@ -23,6 +23,15 @@
     },
     "position": {
       "type": "string"
+    },
+    "isPlayer": {
+      "type": "boolean"
+    },
+    "level": {
+      "type": "integer"
+    },
+    "email": {
+      "type": "string"
     }
   }
 }

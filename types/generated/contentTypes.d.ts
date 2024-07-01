@@ -833,6 +833,9 @@ export interface ApiClientClient extends Schema.CollectionType {
     phone: Attribute.String;
     company: Attribute.String;
     position: Attribute.String;
+    isPlayer: Attribute.Boolean;
+    level: Attribute.Integer;
+    email: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
